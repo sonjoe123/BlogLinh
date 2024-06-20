@@ -8,52 +8,60 @@ import { Search } from "./Search";
 import logo from "../assets/img/umbrella.png";
 import searchIcon from "../assets/img/icon.png";
 import { JournalDetail } from "./JournalDetail";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+
 export default function Navigation() {
   return (
     <BrowserRouter>
       <div>
         {/* Header section for the logo and Linh's Home */}
         <header className="text-center py-3 bg-white">
-          <Link to="/Home">
+          <Link to="/">
             <img src={logo} alt="Linh's Logo" style={{ maxWidth: "100px" }} />
           </Link>
           <div>
-            <a className="navbar-brand" href="/Home">
+            <a className="navbar-brand" href="/">
               Linh's Home
             </a>
           </div>
         </header>
 
         {/* Navbar */}
-        <nav className="navbar navbar-expand-lg" data-bs-theme="light">
-          <div className="container-fluid justify-content-between">
-            {/* Center: Navigation Links */}
-            <div
-              className="collapse navbar-collapse justify-content-center"
-              id="navbarNavAltMarkup"
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <div className="container-fluid">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
             >
-              <div className="navbar-nav">
-                <a className="nav-link" href="/Home">
+              <span className="navbar-toggler-icon"></span>
+            </button>
+            <div className="collapse navbar-collapse" id="navbarNav">
+              <div className="navbar-nav mx-auto">
+                <Link className="nav-link" to="/">
                   Home
-                </a>
-                <a className="nav-link" href="/Journal">
+                </Link>
+                <Link className="nav-link" to="/Journal">
                   Journal
-                </a>
-                <a className="nav-link" href="/Anthology">
+                </Link>
+                <Link className="nav-link" to="/Anthology">
                   Anthology
-                </a>
-                <a className="nav-link" href="/About">
+                </Link>
+                <Link className="nav-link" to="/About">
                   About
-                </a>
-                <a className="nav-link">
-                  <Link to="/Search">
-                    <img
-                      src={searchIcon}
-                      alt="search"
-                      style={{ maxWidth: "30px" }}
-                    />
-                  </Link>
-                </a>
+                </Link>
+                <Link className="nav-link" to="/Search">
+                  <img
+                    src={searchIcon}
+                    alt="search"
+                    style={{ maxWidth: "30px" }}
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -62,13 +70,9 @@ export default function Navigation() {
         {/* Main content */}
         <div>
           <Routes>
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/Journal" element={<Journal />} />
-            <Route
-              path="/Journal/:imageName"
-              element={<JournalDetail />}
-            />{" "}
-            {/* Dynamic route */}
+            <Route path="/Journal/:imageName" element={<JournalDetail />} />
             <Route path="/Anthology" element={<Anthology />} />
             <Route path="/About" element={<About />} />
             <Route path="/Search" element={<Search />} />

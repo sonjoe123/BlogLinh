@@ -1,38 +1,42 @@
 /************ Navbar Css ************/
 header {
-  background-color: white; /* Change background color to white */
-  padding: 20px; /* Adjust padding as needed */
+  background-color: white;
+  padding: 20px;
 }
 
 header img {
   max-width: 100px;
-  cursor: pointer; /* Optional: change the cursor to indicate it's clickable */
+  cursor: pointer;
 }
 
 header .navbar-brand {
   display: block;
-  margin-top: 10px; /* Space between logo and text */
+  margin-top: 10px;
   font-family: "Baskervville", serif;
   font-weight: bold;
   font-style: italic;
-  font-size: 30px; /* Adjust this value to your desired size */
+  font-size: 30px;
 }
 
 .navbar-nav .nav-link {
   font-family: "Baskervville", serif;
   font-weight: 400;
   font-style: normal;
-  transition: all 0.3s ease; /* Smooth transition for the hover effect */
+  transition: all 0.3s ease;
 }
 
-/* Style for the hovered navigation link */
 .navbar-nav .nav-link:hover {
-  font-weight: bold; /* Make the hovered link bold */
+  font-weight: bold;
 }
 
-/* Style for non-hovered navigation links when one is hovered */
 .navbar-nav:hover .nav-link:not(:hover) {
-  opacity: 0.5; /* Fade the non-hovered links */
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  header .navbar-brand {
+    font-size: 24px;
+  }
 }
 
 /************ Home Css ************/
@@ -41,7 +45,7 @@ header .navbar-brand {
   flex-direction: column;
   gap: 50px;
   padding: 20px;
-  font-family: "Lora", serif; /* Use the Lora font family */
+  font-family: "Lora", serif;
 }
 
 .section {
@@ -73,7 +77,6 @@ header .navbar-brand {
   line-height: 1.6;
 }
 
-/* Animation for images */
 @keyframes slideIn {
   from {
     opacity: 0;
@@ -88,43 +91,79 @@ header .navbar-brand {
 .animated-image {
   animation: slideIn 1s ease-in-out;
 }
-/* Journal.css */
 
+@media (max-width: 768px) {
+  .home-container {
+    gap: 30px;
+    padding: 15px;
+  }
+
+  .section {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .image-left,
+  .image-right,
+  .text-right,
+  .text-left {
+    max-width: 100%;
+  }
+
+  .heading {
+    font-size: 20px;
+  }
+
+  .paragraph {
+    font-size: 14px;
+  }
+}
+
+/************ Journal Css ************/
 .journal-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between; /* Ensure even spacing between items */
-  padding: 20px; /* Padding around the container */
+  justify-content: space-between;
+  padding: 20px;
 }
 
 .image-wrapper {
-  width: 30%; /* Each image takes 30% of the container width */
-  margin-bottom: 20px; /* Space between rows */
-  text-align: center; /* Center-align content */
-  animation: slideIn 0.5s ease-in-out; /* Apply animation to each image */
+  width: 30%;
+  margin-bottom: 20px;
+  text-align: center;
+  animation: slideIn 0.5s ease-in-out;
 }
 
 .journal-image {
   max-width: 100%;
   height: auto;
-  border-radius: 8px; /* Optional: Rounded corners for images */
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease-in-out; /* Smooth transition for hover effect */
+  transition: transform 0.3s ease-in-out;
 }
 
 .journal-image:hover {
-  transform: translateY(-5px); /* Lift the image up slightly on hover */
+  transform: translateY(-5px);
 }
 
 .journal-heading {
-  font-family: "Lora", serif; /* Use Baskervville font */
-  font-weight: normal; /* Ensure normal weight */
-  font-style: normal; /* Ensure normal style */
-  margin-top: 10px; /* Space between image and heading */
+  font-family: "Lora", serif;
+  font-weight: normal;
+  font-style: normal;
+  margin-top: 10px;
 }
 
-/* JournalDetail.css */
+@media (max-width: 768px) {
+  .journal-container {
+    padding: 10px;
+  }
 
+  .image-wrapper {
+    width: 100%;
+  }
+}
+
+/************ Journal Detail Css ************/
 .journal-detail-container {
   text-align: center;
   padding: 20px;
@@ -144,105 +183,134 @@ header .navbar-brand {
 
 .description-container {
   display: inline-block;
-  width: 80%; /* Adjusted to cover 70% of the page */
+  width: 80%;
   padding: 10px;
   margin-top: 10px;
   text-align: left;
-
-  white-space: pre-line; /* Preserve formatting of white spaces and new lines */
-  overflow-wrap: break-word; /* Ensure text wraps within the container */
-  margin-left: auto; /* Center the container horizontally */
-  margin-right: auto; /* Center the container horizontally */
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  margin-left: auto;
+  margin-right: auto;
 }
+
 .journal-detail-description {
   font-family: "Lora", serif;
   font-weight: normal;
   margin: 0;
+  text-align: justify;
 }
 
-/* Animation for images */
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+@media (max-width: 768px) {
+  .journal-detail-container {
+    padding: 10px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .description-container {
+    width: 100%;
   }
 }
 
-.animated-image {
-  animation: slideIn 0.5s ease-in-out;
-}
-
-/* About.css */
-
+/************ About Css ************/
 .about-container {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: flex-start; /* Align items to the top */
-  height: 100vh; /* Full viewport height */
-  padding: 20px; /* Padding around the content */
-  text-align: center; /* Center-align text */
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
 }
 
 .linh-pic {
-  max-width: 300px; /* Limit max width of the image */
-  height: auto; /* Maintain aspect ratio */
-  border-radius: 70%; /* Make image round */
-  margin-bottom: 20px; /* Space between image and header */
-  margin-top: 20px; /* Adjust top margin */
+  max-width: 300px;
+  height: auto;
+  border-radius: 70%;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .about-header {
-  font-family: "Lora", serif; /* Use Lora font */
-  font-weight: bold; /* Bold font weight */
-  font-size: 2.5rem; /* Larger font size */
-  margin-bottom: 10px; /* Space between header and paragraph */
+  font-family: "Lora", serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
 .about-paragraph {
-  font-family: "Lora", serif; /* Use Lora font */
-  font-size: 1.2rem; /* Regular font size */
-  line-height: 1.6; /* Line height for better readability */
+  font-family: "Lora", serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
-/* Search.css */
 
+@media (max-width: 768px) {
+  .about-container {
+    padding: 10px;
+  }
+
+  .linh-pic {
+    max-width: 200px;
+  }
+
+  .about-header {
+    font-size: 2rem;
+  }
+
+  .about-paragraph {
+    font-size: 1rem;
+  }
+}
+
+/************ Search Css ************/
 .search-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Align items to the top */
-  margin-top: 50px; /* Adjust margin to move closer to the top */
+  justify-content: flex-start;
+  margin-top: 50px;
 }
 
 .search-input {
-  width: 780px; /* Adjust width as needed */
-  height: 40px; /* Adjust height as needed */
-  font-family: "Baskerville", serif; /* Use Baskerville font */
-  font-size: 1.2rem; /* Adjust font size */
-  padding: 10px; /* Padding inside input field */
-  border-radius: 10px; /* Rounded corners for input */
-  border: 1px solid #ccc; /* Border style */
-  margin-bottom: 20px; /* Space below input field */
+  width: 780px;
+  height: 40px;
+  font-family: "Baskerville", serif;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
 }
 
 .search-button {
-  width: 150px; /* Adjust button width */
-  height: 50px; /* Adjust button height */
-  font-family: "Baskerville", serif; /* Use Baskerville font */
-  font-size: 1.2rem; /* Adjust font size */
-  cursor: pointer; /* Cursor style */
-  background-color: white; /* Button background color */
-  color: black; /* Text color */
-  border: solid; /* No border */
-  border-radius: 10px; /* Rounded corners */
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
+  width: 150px;
+  height: 50px;
+  font-family: "Baskerville", serif;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: solid;
+  border-radius: 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .search-button:hover {
-  background-color: #4caf50; /* Green background color on hover */
-  color: white; /* Text color on hover */
+  background-color: #4caf50;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .search-container {
+    margin-top: 30px;
+  }
+
+  .search-input {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .search-button {
+    width: 120px;
+    height: 40px;
+    font-size: 1rem;
+  }
 }
